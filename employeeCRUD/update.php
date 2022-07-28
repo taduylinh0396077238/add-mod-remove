@@ -3,7 +3,7 @@
 require_once 'config.php';
 // define variables and initialize with empty values
 $name = $address = $salary = "";
-$name_err = $address_arr   = $salary_err ="";
+$name_err = $address_err   = $salary_err ="";
 // processing form data when form is submitted
 if (isset($_POST["id"]) && !empty($_POST["id"])){
     // Get hidden input value
@@ -12,7 +12,7 @@ if (isset($_POST["id"]) && !empty($_POST["id"])){
     $input_name = trim($_POST["name"]);
     if(empty($input_name)){
         $name_err="Please enter a name.";
-    }elseif(!filter_var(trim($_POST["name"]),FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => "/^[a-zA-Z-.\s]+$/")))){
+    }elseif(!filter_var(trim($_POST["name"]),FILTER_VALIDATE_REGEXP, array("options" => array("regexp" => "/^[a-zA-Z'-.\s]+$/")))){
         $name_err="Please enter a valid name.";
     }else{
         $name=$input_name;
@@ -113,14 +113,13 @@ if (isset($_POST["id"]) && !empty($_POST["id"])){
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Update Record</title>
-    <link rel="stylesheet" href="https://maxcdn/bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
-
     <style type="text/css">
         .wrapper{
             width: 500px;
             margin: 0 auto;
         }
     </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
 </head>
 <body>
 <div class="wrapper">
